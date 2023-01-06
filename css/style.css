@@ -111,9 +111,32 @@ body{
     padding: 10px;
 }
 
+.check{
+    border: 3px solid #1ea77e;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.borda-transparente{
+    border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.imagem p{
+    font-size: 16px;
+    margin: -1px 0px;
+}
 .imagem img{ 
     width: 144px;
-    height: 87px;    i
+    height: 87px;   
+    margin-bottom: 5px; 
+}
+ion-icon{
+    width: 16px;
+    height: 16px;
+    color: #1ea77e;
+}
+.preco-checkmark{
+    display: flex;
+    justify-content: space-between;
 }
 
 .descricao{
@@ -142,3 +165,6 @@ body{
     color: #ffffff;
 }
 
+.selecionado{
+    display: none;
+}
