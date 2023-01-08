@@ -9,14 +9,31 @@ function verde(opcao, produto, ioordem){
     // Procurar se existem ion-icons ligados
     if(checkPrato){
         // Procurar se existem bordas check ligadas
-        bordaCheck = document.querySelector(".prato .check")
+        bordaCheck = document.querySelector(".prato .check");
         if(bordaCheck != null){
-            bordaCheck.classList.remove("check")
-            bordaCheck.classList.add("borda-transparente")
-
+            bordaCheck.classList.remove("check");
+            bordaCheck.classList.add("borda-transparente");
         }
+    }else if(checkBebida){
+        // Procurar se existem bordas check ligadas
+        bordaCheck = document.querySelector(".bebida .check");
+        if(bordaCheck != null){
+            bordaCheck.classList.remove("check");
+            bordaCheck.classList.add("borda-transparente");
+        }
+    }else if(checkSobremesa){
+        // Procurar se existem bordas check ligadas
+        bordaCheck = document.querySelector(".sobremesa .check");
+        if(bordaCheck != null){
+            bordaCheck.classList.remove("check");
+            bordaCheck.classList.add("borda-transparente");
+        }
+    }
+
+
+    if(checkPrato){
         // tagSelecionado = document.querySelector(".prato ion-icon")
-        else if(ioordem == '.io1'){
+        if(ioordem == '.io1'){
             tagCheckmark = document.querySelector(".prato .io1");
         }else if(ioordem == '.io2'){
             tagCheckmark = document.querySelector(".prato .io2");
@@ -24,15 +41,8 @@ function verde(opcao, produto, ioordem){
             tagCheckmark = document.querySelector(".prato .io3");
         }
     }else if(checkBebida){
-        // Procurar se existem bordas check ligadas
-        bordaCheck = document.querySelector(".bebida .check")
-        if(bordaCheck != null){
-            bordaCheck.classList.remove("check")
-            bordaCheck.classList.add("borda-transparente")
-
-        }
         // tagSelecionado = document.querySelector(".prato ion-icon")
-        else if(ioordem == '.io1'){
+        if(ioordem == '.io1'){
             tagCheckmark = document.querySelector(".bebida .io1");
         }else if(ioordem == '.io2'){
             tagCheckmark = document.querySelector(".bebida .io2");
@@ -40,15 +50,8 @@ function verde(opcao, produto, ioordem){
             tagCheckmark = document.querySelector(".bebida .io3");
         }
     }else if(checkSobremesa){
-        // Procurar se existem bordas check ligadas
-        bordaCheck = document.querySelector(".sobremesa .check")
-        if(bordaCheck != null){
-            bordaCheck.classList.remove("check")
-            bordaCheck.classList.add("borda-transparente")
-
-        }
         // tagSelecionado = document.querySelector(".prato ion-icon")
-        else if(ioordem == '.io1'){
+        if(ioordem == '.io1'){
             tagCheckmark = document.querySelector(".sobremesa .io1");
         }else if(ioordem == '.io2'){
             tagCheckmark = document.querySelector(".sobremesa .io2");
@@ -57,12 +60,46 @@ function verde(opcao, produto, ioordem){
         }
     }
 
+    checkIoniconExistente(checkPrato, checkBebida, checkSobremesa);
     // Para ativar borda verde de check
     opcao.classList.remove("borda-transparente");
     opcao.classList.add("check");
     // Para ativar/desativar ion-icon
-    tagCheckmark.classList.toggle("selecionado");
+    tagCheckmark.classList.remove("selecionado");
+    tagCheckmark.classList.add("on");
+    tagCheckmark.classList.remove("off");
     console.log("tag retornada: ");
     console.log(bordaCheck);
 
+}
+
+function checkIoniconExistente(checkPrato, checkBebida, checkSobremesa){
+    if(checkPrato){
+        const ionicon = document.querySelector(".prato .on");
+        console.log("RETORNO DO IONICON::: ")
+        console.log(ionicon);
+        if(ionicon != null){
+            ionicon.classList.add("selecionado");
+            ionicon.classList.remove("on");
+            ionicon.classList.add("off");
+        }
+    }else if(checkBebida){
+        const ionicon = document.querySelector(".bebida .on");
+        console.log("RETORNO DO IONICON::: ")
+        console.log(ionicon);
+        if(ionicon != null){
+            ionicon.classList.add("selecionado");
+            ionicon.classList.remove("on");
+            ionicon.classList.add("off");
+        }
+    }else if(checkSobremesa){
+        const ionicon = document.querySelector(".sobremesa .on");
+        console.log("RETORNO DO IONICON::: ")
+        console.log(ionicon);
+        if(ionicon != null){
+            ionicon.classList.add("selecionado");
+            ionicon.classList.remove("on");
+            ionicon.classList.add("off");
+        }
+    }
 }

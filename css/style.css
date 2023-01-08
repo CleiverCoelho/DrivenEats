@@ -81,7 +81,10 @@ body{
 }
 .scroll{
     overflow-x: scroll;
+    
 }
+
+
 .bebidas{
     background-color: red;
     width: 100%;
