@@ -109,9 +109,9 @@ function verde(opcao, produto, ioordem){
     tagCheckmark.classList.remove("off");
     // console.log("tag retornada: ");
     // console.log(bordaCheck);
-    console.log("Preco prato: " + precoPrato);
-    console.log("Preco bebida: " + precoBebida);
-    console.log("Preco sobremesa: " + precoSobremesa);
+    // console.log("Preco prato: " + precoPrato);
+    // console.log("Preco bebida: " + precoBebida);
+    // console.log("Preco sobremesa: " + precoSobremesa);
 
 
     liberarFecharPedido();
