@@ -17,6 +17,7 @@ body{
 
 .botao{
     position: fixed;
+    position: absolte;
     bottom: 0px;
     width: 100%;
     height: 100px;
@@ -36,12 +37,15 @@ body{
     border-radius: 50px;
     padding: 20px;
 }
+.botao button{
+    border: none;
+
+}
 .aguardando-selecionar div{
-    width: 70%;
+    width: 80%;
     height: auto;
     color: #ffffff;
     font-size: 26px;
-    margin-left: 50px;
 }
 .logo-superior{
     width: 100%;
@@ -167,9 +171,7 @@ ion-icon{
     font-size: 18px;
     color: #ffffff;
 }
-.paragrafo-pedido-fechado{
-    margin-right: -50px;
-}
+
 .selecionado{
     display: none;
 }
@@ -177,3 +179,4 @@ ion-icon{
 .pedido-fechado{
     background-color: #32B72F;
 }
+

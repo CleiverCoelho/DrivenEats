@@ -1,3 +1,11 @@
+let precoPrato;
+let precoBebida;
+let precoSobremesa;
+
+let prato;
+let bebida;
+let sobremesa;
+
 function verde(opcao, produto, ioordem){    
     let tagCheckmark;
     let bordaCheck;
@@ -34,30 +42,61 @@ function verde(opcao, produto, ioordem){
     if(checkPrato){
         // tagSelecionado = document.querySelector(".prato ion-icon")
         if(ioordem == '.io1'){
-            tagCheckmark = document.querySelector(".prato .io1");
+            tagCheckmark = document.querySelector(".prato .io1.selecionado");
+            precoPrato = document.querySelector(".prato .preco.io1").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            prato = document.querySelector(".prato .imagem.io1 p").innerHTML;
         }else if(ioordem == '.io2'){
-            tagCheckmark = document.querySelector(".prato .io2");
+            tagCheckmark = document.querySelector(".prato .io2.selecionado");
+            precoPrato = document.querySelector(".prato .preco.io2").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            prato = document.querySelector(".prato .imagem.io2 p").innerHTML;
         }else if(ioordem == '.io3'){
-            tagCheckmark = document.querySelector(".prato .io3");
+            tagCheckmark = document.querySelector(".prato .io3.selecionado");
+            precoPrato = document.querySelector(".prato .preco.io3").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            prato = document.querySelector(".prato .imagem.io3 p").innerHTML;
         }
+        precoPrato = trataValores(precoPrato);
     }else if(checkBebida){
         // tagSelecionado = document.querySelector(".prato ion-icon")
         if(ioordem == '.io1'){
-            tagCheckmark = document.querySelector(".bebida .io1");
+            tagCheckmark = document.querySelector(".bebida .io1.selecionado");
+            // Armazena o preco da bebida escolhida
+            precoBebida = document.querySelector(".bebida .preco.io1").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            bebida = document.querySelector(".bebida .imagem.io1 p").innerHTML;
         }else if(ioordem == '.io2'){
-            tagCheckmark = document.querySelector(".bebida .io2");
+            tagCheckmark = document.querySelector(".bebida .io2.selecionado");
+            precoBebida = document.querySelector(".bebida .preco.io2").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            bebida = document.querySelector(".bebida .imagem.io2 p").innerHTML;
         }else if(ioordem == '.io3'){
-            tagCheckmark = document.querySelector(".bebida .io3");
+            tagCheckmark = document.querySelector(".bebida .io3.selecionado");
+            precoBebida = document.querySelector(".bebida .preco.io3").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            bebida = document.querySelector(".bebida .imagem.io3 p").innerHTML;
         }
+        precoBebida = trataValores(precoBebida);
     }else if(checkSobremesa){
         // tagSelecionado = document.querySelector(".prato ion-icon")
         if(ioordem == '.io1'){
-            tagCheckmark = document.querySelector(".sobremesa .io1");
+            tagCheckmark = document.querySelector(".sobremesa .io1.selecionado");
+            precoSobremesa = document.querySelector(".sobremesa .preco.io1").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            sobremesa = document.querySelector(".sobremesa .imagem.io1 p").innerHTML;
         }else if(ioordem == '.io2'){
-            tagCheckmark = document.querySelector(".sobremesa .io2");
+            tagCheckmark = document.querySelector(".sobremesa .io2.selecionado");
+            precoSobremesa = document.querySelector(".sobremesa .preco.io2").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            sobremesa = document.querySelector(".sobremesa .imagem.io2 p").innerHTML;
         }else if(ioordem == '.io3'){
-            tagCheckmark = document.querySelector(".sobremesa .io3");
+            tagCheckmark = document.querySelector(".sobremesa .io3.selecionado");
+            precoSobremesa = document.querySelector(".sobremesa .preco.io3").innerHTML;
+            // Armazenar o nome da bebida escolhido
+            sobremesa = document.querySelector(".sobremesa .imagem.io3 p").innerHTML;
         }
+        precoSobremesa = trataValores(precoSobremesa);
     }
 
     checkIoniconExistente(checkPrato, checkBebida, checkSobremesa);
@@ -70,6 +109,10 @@ function verde(opcao, produto, ioordem){
     tagCheckmark.classList.remove("off");
     // console.log("tag retornada: ");
     // console.log(bordaCheck);
+    console.log("Preco prato: " + precoPrato);
+    console.log("Preco bebida: " + precoBebida);
+    console.log("Preco sobremesa: " + precoSobremesa);
+
 
     liberarFecharPedido();
 
@@ -106,6 +149,7 @@ function checkIoniconExistente(checkPrato, checkBebida, checkSobremesa){
     }
 }
 
+
 function liberarFecharPedido(){
     const pratoOn = document.querySelector(".prato .on")
     const bebidaOn =  document.querySelector(".bebida .on")
@@ -113,11 +157,29 @@ function liberarFecharPedido(){
 
     if (pratoOn != null && bebidaOn != null && sobremesaOn != null){
         const paragrafo = document.querySelector(".aguardando-selecionar div");
-        console.log(paragrafo);
         paragrafo.innerHTML = "Fechar Pedido";
-        paragrafo.classList.add("paragrafo-pedido-fechado");
 
         const botao = document.querySelector(".aguardando-selecionar");
         botao.classList.add("pedido-fechado");
+    }
+}
+
+function trataValores(valor) {
+    valor = valor.replace("R$ ", "").replace(",", ".");
+    valor = Number(valor);
+
+    return valor;
+}
+function calculaPrecoPedido() {
+    const total = precoBebida + precoPrato + precoSobremesa;
+    return total;
+}
+function mandarWhatsapp() {
+    const botao = document.querySelector(".aguardando-selecionar");
+    const botaoLiberado = botao.classList.contains("pedido-fechado");
+    if(botaoLiberado){
+        let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$ ${calculaPrecoPedido().toFixed(2)}`;
+        const urlWpp = `https://wa.me/5593891581166?text=${encodeURIComponent(mensagem)}`;
+        window.open(urlWpp);
     }
 }
