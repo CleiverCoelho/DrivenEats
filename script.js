@@ -68,16 +68,18 @@ function verde(opcao, produto, ioordem){
     tagCheckmark.classList.remove("selecionado");
     tagCheckmark.classList.add("on");
     tagCheckmark.classList.remove("off");
-    console.log("tag retornada: ");
-    console.log(bordaCheck);
+    // console.log("tag retornada: ");
+    // console.log(bordaCheck);
+
+    liberarFecharPedido();
 
 }
 
 function checkIoniconExistente(checkPrato, checkBebida, checkSobremesa){
     if(checkPrato){
         const ionicon = document.querySelector(".prato .on");
-        console.log("RETORNO DO IONICON::: ")
-        console.log(ionicon);
+        // console.log("RETORNO DO IONICON::: ")
+        // console.log(ionicon);
         if(ionicon != null){
             ionicon.classList.add("selecionado");
             ionicon.classList.remove("on");
@@ -85,8 +87,8 @@ function checkIoniconExistente(checkPrato, checkBebida, checkSobremesa){
         }
     }else if(checkBebida){
         const ionicon = document.querySelector(".bebida .on");
-        console.log("RETORNO DO IONICON::: ")
-        console.log(ionicon);
+        // console.log("RETORNO DO IONICON::: ")
+        // console.log(ionicon);
         if(ionicon != null){
             ionicon.classList.add("selecionado");
             ionicon.classList.remove("on");
@@ -94,12 +96,28 @@ function checkIoniconExistente(checkPrato, checkBebida, checkSobremesa){
         }
     }else if(checkSobremesa){
         const ionicon = document.querySelector(".sobremesa .on");
-        console.log("RETORNO DO IONICON::: ")
-        console.log(ionicon);
+        // console.log("RETORNO DO IONICON::: ")
+        // console.log(ionicon);
         if(ionicon != null){
             ionicon.classList.add("selecionado");
             ionicon.classList.remove("on");
             ionicon.classList.add("off");
         }
+    }
+}
+
+function liberarFecharPedido(){
+    const pratoOn = document.querySelector(".prato .on")
+    const bebidaOn =  document.querySelector(".bebida .on")
+    const sobremesaOn = document.querySelector(".sobremesa .on")
+
+    if (pratoOn != null && bebidaOn != null && sobremesaOn != null){
+        const paragrafo = document.querySelector(".aguardando-selecionar div");
+        console.log(paragrafo);
+        paragrafo.innerHTML = "Fechar Pedido";
+        paragrafo.classList.add("paragrafo-pedido-fechado");
+
+        const botao = document.querySelector(".aguardando-selecionar");
+        botao.classList.add("pedido-fechado");
     }
 }
