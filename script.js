@@ -6,6 +6,9 @@ let prato;
 let bebida;
 let sobremesa;
 
+const enableOrDisable = document.querySelector(".aguardando-selecionar");
+enableOrDisable.disabled = true;
+
 function verde(opcao, produto, ioordem){    
     let tagCheckmark;
     let bordaCheck;
@@ -107,12 +110,6 @@ function verde(opcao, produto, ioordem){
     tagCheckmark.classList.remove("selecionado");
     tagCheckmark.classList.add("on");
     tagCheckmark.classList.remove("off");
-    // console.log("tag retornada: ");
-    // console.log(bordaCheck);
-    // console.log("Preco prato: " + precoPrato);
-    // console.log("Preco bebida: " + precoBebida);
-    // console.log("Preco sobremesa: " + precoSobremesa);
-
 
     liberarFecharPedido();
 
@@ -161,6 +158,9 @@ function liberarFecharPedido(){
 
         const botao = document.querySelector(".aguardando-selecionar");
         botao.classList.add("pedido-fechado");
+        botao.disabled=false;
+
+        enableOrDisable.disabled = false;
     }
 }
 
@@ -175,11 +175,8 @@ function calculaPrecoPedido() {
     return total;
 }
 function mandarWhatsapp() {
-    const botao = document.querySelector(".aguardando-selecionar");
-    const botaoLiberado = botao.classList.contains("pedido-fechado");
-    if(botaoLiberado){
-        let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$${calculaPrecoPedido().toFixed(2)}`;
-        const urlWpp = `https://wa.me/559391671085?text=${encodeURIComponent(mensagem)}`;
-        window.open(urlWpp);
-    }
+    let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$${calculaPrecoPedido().toFixed(2)}`;
+    const urlWpp = `https://wa.me/559391671085?text=${encodeURIComponent(mensagem)}`;
+    window.open(urlWpp);
 }
+
