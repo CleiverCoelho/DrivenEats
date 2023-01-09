@@ -158,9 +158,8 @@ function liberarFecharPedido(){
 
         const botao = document.querySelector(".aguardando-selecionar");
         botao.classList.add("pedido-fechado");
-        botao.removeAttribute("disabled");
 
-        enableOrDisable.disabled = false;
+        enableOrDisable.removeAttribute("disabled");
     }
 }
 
@@ -175,6 +174,7 @@ function calculaPrecoPedido() {
     return total;
 }
 function mandarWhatsapp() {
+
     let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$${calculaPrecoPedido().toFixed(2)}`;
     const urlWpp = `https://wa.me/559391671085?text=${encodeURIComponent(mensagem)}`;
     window.open(urlWpp);
