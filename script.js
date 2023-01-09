@@ -158,7 +158,7 @@ function liberarFecharPedido(){
 
         const botao = document.querySelector(".aguardando-selecionar");
         botao.classList.add("pedido-fechado");
-        botao.disabled=false;
+        botao.removeAttribute("disabled");
 
         enableOrDisable.disabled = false;
     }
