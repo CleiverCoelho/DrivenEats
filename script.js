@@ -7,7 +7,7 @@ let bebida;
 let sobremesa;
 
 const enableOrDisable = document.querySelector(".aguardando-selecionar");
-enableOrDisable.disabled = true;
+// enableOrDisable.disabled = true;
 
 function verde(opcao, produto, ioordem){    
     let tagCheckmark;
@@ -160,6 +160,7 @@ function liberarFecharPedido(){
         botao.classList.add("pedido-fechado");
 
         enableOrDisable.removeAttribute("disabled");
+
     }
 }
 
