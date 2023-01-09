@@ -6,6 +6,9 @@ let prato;
 let bebida;
 let sobremesa;
 
+let nome;
+let endereco;
+
 const enableOrDisable = document.querySelector(".aguardando-selecionar");
 enableOrDisable.disabled = true;
 
@@ -178,10 +181,30 @@ function calculaPrecoPedido() {
     const total = precoBebida + precoPrato + precoSobremesa;
     return total;
 }
+
+function confirmarPedido(){
+    document.querySelector(".confirmacao").classList.remove("escondido");
+
+    document.querySelector(".pratoEscolhido").innerHTML = prato;
+    document.querySelector(".precoPrato").innerHTML = `R$${precoPrato.toFixed(2)}`;
+    document.querySelector(".bebidaEscolhida").innerHTML = bebida;
+    document.querySelector(".precoBebida").innerHTML = `R$${precoBebida.toFixed(2)}`;
+    document.querySelector(".sobremesaEscolhida").innerHTML = sobremesa;
+    document.querySelector(".precoSobremesa").innerHTML = `R$${precoSobremesa.toFixed(2)}`;
+    document.querySelector(".totalFinal").innerHTML = `R$${(calculaPrecoPedido()).toFixed(2)}`;
+
+    // perguntar nome e endereço
+    nome = prompt("Digite seu nome");
+    endereco = prompt("Digite seu Endereço");
+}
+
 function mandarWhatsapp() {
 
-    let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$${calculaPrecoPedido().toFixed(2)}`;
+    let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$${calculaPrecoPedido().toFixed(2)}\nNome: ${nome}\nEndereço: ${endereco}`;
     const urlWpp = `https://wa.me/559391671085?text=${encodeURIComponent(mensagem)}`;
     window.open(urlWpp);
+}
+function cancelarPedido(){
+    document.querySelector(".confirmacao").classList.add("escondido");
 }
 

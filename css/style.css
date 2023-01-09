@@ -175,10 +175,83 @@ ion-icon{
     color: #ffffff;
 }
 
-.selecionado{
-    display: none;
-}
-
 .pedido-fechado{
     background-color: green;
+}
+.confirmacao h3{
+    color: white;
+}
+.confirmacao {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+  }
+
+  .revisao {
+    background-color: green;
+    color: white;
+    width: 377px;
+    height: 353px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    border-radius: 9px;
+  }
+  .pratoEscolhido, 
+  .bebidaEscolhida, 
+  .sobremesaEscolhida{
+    font-size: 20px;
+  }
+
+  .revisao * {
+    margin: 5px 25px;
+  }
+  
+  .revisao li {
+    display: flex;
+    justify-content: space-between;
+  }
+  li div:nth-child(1){
+    margin-left: -1px;
+  }
+  
+  .revisao button {
+    border-radius: 100px;
+    padding: 5px 10px;
+    color: green;
+    font-weight: 700;
+    width: 333px;
+    height: 50px;
+    font-size: 22px;
+    margin-right: 10px;
+    border: none;
+    margin-right: 50px;
+  }
+  
+  .revisao button:hover {
+    cursor: pointer;
+  }
+
+  .confirmacao .cancelar {
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    margin-right: 50px;
+  }
+.escondido{
+    display: none;
+}
+.selecionado{
+    display: none;
 }

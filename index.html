@@ -17,6 +17,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Mensagem Confirmação Pedido Escondida  -->
+
+    <div class="confirmacao escondido">
+        <div class="revisao">
+            <h3><strong>Confirme seu pedido</strong></h3>
+            <ul>
+                <li>
+                    <div class="pratoEscolhido">Prato</div>
+                    <div class="precoPrato">null</div>
+                </li>
+                <li>
+                    <div class="bebidaEscolhida">Bebida</div>
+                    <div class="precoBebida">null</div>
+                </li>
+                <li>
+                    <div class="sobremesaEscolhida">Sobremesa</div>
+                    <div class="precoSobremesa">null</div>
+                </li>
+                <li>
+                    <div class="total">TOTAL</div>
+                    <div class="totalFinal">null</div>
+                </li>
+                <button onclick = "mandarWhatsapp()">Tudo certo, pode pedir!</button>
+                <p class="cancelar" onclick="cancelarPedido()" >Cancelar</p>
+                
+            </ul>
+        </div>
+    </div> 
+    <!--FIM div bonus-->
+
     <div class="web">
         <div class="logo-superior">
             <h1>DrivenEats</h1>
@@ -155,7 +186,7 @@
         </div>
         <!--Fim da Div Sobremesa-->
         <div class="botao">
-            <button type="button" onclick="mandarWhatsapp()" data-test="order-btn" class="aguardando-selecionar">
+            <button type="button" onclick="confirmarPedido()" data-test="order-btn" class="aguardando-selecionar">
                 <div class="p">
                     Selecione os 3 itens para fechar o pedido
                 </div>
