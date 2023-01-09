@@ -7,7 +7,7 @@ let bebida;
 let sobremesa;
 
 const enableOrDisable = document.querySelector(".aguardando-selecionar");
-// enableOrDisable.disabled = true;
+enableOrDisable.disabled = true;
 
 function verde(opcao, produto, ioordem){    
     let tagCheckmark;
@@ -112,6 +112,8 @@ function verde(opcao, produto, ioordem){
     tagCheckmark.classList.remove("off");
 
     liberarFecharPedido();
+
+    console.log(enableOrDisable);
 
 }
 
