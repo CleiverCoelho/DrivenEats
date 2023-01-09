@@ -155,13 +155,15 @@ function liberarFecharPedido(){
     const sobremesaOn = document.querySelector(".sobremesa .on")
 
     if (pratoOn != null && bebidaOn != null && sobremesaOn != null){
+        
+        // Removendo atributo antes de colocar background verde e innerHTML pois o contrario nao funcionou
+        enableOrDisable.removeAttribute("disabled");
+
         const paragrafo = document.querySelector(".aguardando-selecionar div");
         paragrafo.innerHTML = "Fechar Pedido";
 
         const botao = document.querySelector(".aguardando-selecionar");
         botao.classList.add("pedido-fechado");
-
-        enableOrDisable.removeAttribute("disabled");
 
     }
 }
