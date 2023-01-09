@@ -178,7 +178,7 @@ function mandarWhatsapp() {
     const botao = document.querySelector(".aguardando-selecionar");
     const botaoLiberado = botao.classList.contains("pedido-fechado");
     if(botaoLiberado){
-        let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$ ${calculaPrecoPedido().toFixed(2)}`;
+        let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${prato}\n- Bebida: ${bebida}\n- Sobremesa: ${sobremesa}\nTotal: R$${calculaPrecoPedido().toFixed(2)}`;
         const urlWpp = `https://wa.me/559391671085?text=${encodeURIComponent(mensagem)}`;
         window.open(urlWpp);
     }
